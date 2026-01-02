@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAN 2025 Predictions - Maroc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><img src="logo1.png" alt="logo" width="150px" height="150px"></div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="nav-link">Accueil</a>
+                <a href="#home" class="nav-link active">Prédictions</a>
+                <a href="#instructions" class="nav-link">Comment jouer</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1 class="hero-title">PRÉDISEZ LE CHAMPION DE LA CAN 2025</h1>
+        <p class="hero-subtitle">Prédisez les résultats de la phase à élimination directe. Cliquez sur les vainqueurs et désignez votre champion !</p>
+        
+        <div class="tournament-phase">
+            <div class="phase-badge active">🏆 ÉLIMINATION DIRECTE</div>
+            <div class="phase-badge">⚽ Huitièmes de finale</div>
+            <div class="phase-badge">🥉 Quarts de finale</div>
+            <div class="phase-badge">🥈 Demi-finales</div>
+            <div class="phase-badge">🥇 Finale & Champion</div>
+        </div>
+    </section>
+
+    <!-- Instructions -->
+    <section class="instructions" id="instructions">
+        <h2 class="section-title-comment">COMMENT FAIRE VOS PRÉDICTIONS</h2>
+        
+        <div class="instructions-container">
+            <div class="instruction-card">
+                <div class="instruction-icon">1</div>
+                <h3 class="instruction-title">Cliquez sur le vainqueur</h3>
+                <p>Pour chaque match des huitièmes de finale, cliquez sur l'équipe que vous pensez gagner.</p>
+            </div>
+            
+            <div class="instruction-card">
+                <div class="instruction-icon">2</div>
+                <h3 class="instruction-title">Suivez le parcours</h3>
+                <p>Le vainqueur avance automatiquement au tour suivant. Continuez jusqu'à la finale.</p>
+            </div>
+            
+            <div class="instruction-card">
+                <div class="instruction-icon">3</div>
+                <h3 class="instruction-title">Désignez le champion</h3>
+                <p>Cliquez sur le champion final. Sauvegardez et partagez vos prédictions !</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Bracket - ÉLIMINATION DIRECTE -->
+    <section class="tournament-section" id="predictions">
+        <h2 class="section-title">TABLEAU DES HUITIÈMES DE FINALE</h2>
+        <p class="section-subtitle">Cliquez sur le vainqueur de chaque match. L'équipe avancera automatiquement.</p>
+        
+        <div class="tournament-container">
+            <!-- Colonne gauche - Huitièmes de finale -->
+            <div class="round-column ">
+                <h3 class="round-title">Huitièmes de finale</h3>
+                <!-- Match 1 -->
+                <div class="match" data-match="1">
+                    <div class="team team-slot" id="m1" data-team-code="EGY">
+                        <img src="https://flagcdn.com/w40/eg.png" alt="EGY" class="team-flag">
+                        <span class="team-name">Egypt</span>
+                        <div class="team-code">EGY</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team team-slot" id="m2" data-team-code="BEN">
+                        <img src="https://flagcdn.com/w40/bj.png" alt="Bénin" class="team-flag">
+                        <span class="team-name">Bénin</span>
+                        <div class="team-code">BEN</div>
+                    </div>
+                </div>
+                
+                <!-- Match 2 -->
+                <div class="match" data-match="2">
+                    <div class="team team-slot" id="m3" data-team-code="CIV">
+                        <img src="https://flagcdn.com/w40/ci.png" alt="Côte d'Ivoire" class="team-flag">
+                        <span class="team-name">Côte d'Ivoire</span>
+                        <div class="team-code">CIV</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team team-slot" id="m4" data-team-code="BFA">
+                        <img src="https://flagcdn.com/w40/bf.png" alt="Burkina Faso" class="team-flag">
+                        <span class="team-name">Burkina Faso</span>
+                        <div class="team-code">BFA</div>
+                    </div>
+                </div>
+                
+                <!-- Match 3 -->
+                <div class="match" data-match="3">
+                    <div class="team team-slot" id="m5" data-team-code="SEN">
+                        <img src="https://flagcdn.com/w40/sn.png" alt="Sénégal" class="team-flag">
+                        <span class="team-name">Sénégal</span>
+                        <div class="team-code">SEN</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team team-slot" id="m6" data-team-code="SUD">
+                        <img src="https://flagcdn.com/w40/sd.png" alt="Soudan" class="team-flag">
+                        <span class="team-name">Soudan</span>
+                        <div class="team-code">SUD</div>
+                    </div>
+                </div>
+                
+                <!-- Match 4 -->
+                <div class="match" data-match="4">
+                    <div class="team team-slot" id="m7" data-team-code="MLI">
+                        <img src="https://flagcdn.com/w40/ml.png" alt="Mali" class="team-flag">
+                        <span class="team-name">Mali</span>
+                        <div class="team-code">MLI</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team team-slot" id="m8" data-team-code="TUN">
+                        <img src="https://flagcdn.com/w40/tn.png" alt="Tunisie" class="team-flag">
+                        <span class="team-name">Tunisie</span>
+                        <div class="team-code">TUN</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colonne centre-gauche - Quarts de finale -->
+            <div class="round-column">
+                <h3 class="round-title width:150">Quarts de finale</h3>
+                
+                <div class="slot quarter-slot" id="qf1" data-match="1">
+                    <div class="placeholder">Vainqueur<br>Match 1</div>
+                </div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="slot quarter-slot" id="qf2" data-match="2">
+                    <div class="placeholder">Vainqueur<br>Match 2</div>
+                </div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="slot quarter-slot" id="qf3" data-match="3">
+                    <div class="placeholder">Vainqueur<br>Match 3</div>
+                </div>
+                <span></span>
+                <span></span>
+                <div class="slot quarter-slot" id="qf4" data-match="4">
+                    <div class="placeholder">Vainqueur<br>Match 4</div>
+                </div>
+            </div>
+            
+            <!-- Colonne centre - Demi-finales -->
+            <div class="round-column">
+                <h3 class="round-title">Demi-finales</h3>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="slot semi-slot" id="sf1" data-quarter="1">
+                    <div class="placeholder">Vainqueur<br>Quart 1 vs Quart 2</div>
+                </div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="slot semi-slot" id="sf2" data-quarter="2">
+                    <div class="placeholder">Vainqueur<br>Quart 3 vs Quart 4</div>
+                </div>
+                
+               
+            </div>
+            
+            <!-- Colonne centre-droite - Finale & Champion -->
+            <div class="center-column">
+                <div class="trophy"><img src="cupp3.png" alt="Coupe CAN" width="150px" height="200px"></div>
+                <h3 class="round-title">Finale</h3>
+                <div class="final-container">  
+                    <div class="slot final-slot " id="final1" data-semi="1">
+                        <div class="placeholder">Vainqueur<br>Demi 1 vs Demi 2</div>
+                    </div>
+                    <div class="slot final-slot " id="final2" data-semi="2">
+                        <div class="placeholder">Vainqueur<br>Demi 3 vs Demi 4</div>
+                    </div>
+                </div>
+                
+                <div class="champion-container">
+                    <h3 class="round-title">Champion 2025</h3>
+                    <div class="slot champion-slot" id="champion" data-final="1">
+                        <div class="placeholder">CHAMPION</div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Colonne centre - Demi-finales -->
+            <div class="round-column">
+                <h3 class="round-title">Demi-finales</h3>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>                
+                <div class="slot semi-slot" id="sf3" data-quarter="3">
+                    <div class="placeholder">Vainqueur<br>Quart 5 vs Quart 6</div>
+                </div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="slot semi-slot" id="sf4" data-quarter="4">
+                    <div class="placeholder">Vainqueur<br>Quart 7 vs Quart 8</div>
+                </div>
+            </div>
+            <!-- Colonne droite - Quarts de finale (suite) -->
+            <div class="round-column">
+                <h3 class="round-title">Quarts de finale</h3>
+                
+                <div class="slot quarter-slot" id="qf5" data-match="5">
+                    <div class="placeholder">Vainqueur<br>Match 5</div>
+                </div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="slot quarter-slot" id="qf6" data-match="6">
+                    <div class="placeholder">Vainqueur<br>Match 6</div>
+                </div>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="slot quarter-slot" id="qf7" data-match="7">
+                    <div class="placeholder">Vainqueur<br>Match 7</div>
+                </div>
+                <span></span>
+                <span></span>
+                <div class="slot quarter-slot" id="qf8" data-match="8">
+                    <div class="placeholder">Vainqueur<br>Match 8</div>
+                </div>
+            </div>
+            
+            <!-- Colonne droite - Huitièmes de finale (suite) -->
+            <div class="round-column">
+                <h3 class="round-title">Huitièmes de finale</h3>
+                
+                <!-- Match 5 -->
+                <div class="match" data-match="5">
+                    <div class="team team-slot" id="m9" data-team-code="ALG">
+                        <img src="https://flagcdn.com/w40/dz.png" alt="Algérie" class="team-flag">
+                        <span class="team-name">Algérie</span>
+                        <div class="team-code">ALG</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team team-slot" id="m10" data-team-code="COD">
+                        <img src="https://flagcdn.com/w40/cd.png" alt="Congo DR" class="team-flag">
+                        <span class="team-name">Congo DR</span>
+                        <div class="team-code">COD</div>
+                    </div>
+                </div>
+                
+                <!-- Match 6 -->
+                <div class="match" data-match="6">
+                      <div class="team team-slot" id="m11" data-team-code="NGA">
+                        <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" class="team-flag">
+                        <span class="team-name">Nigeria</span>
+                        <div class="team-code">NGA</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team team-slot" id="m12" data-team-code="MOZ">
+                        <img src="https://flagcdn.com/w40/mz.png" alt="Mozambique" class="team-flag">
+                        <span class="team-name">Mozambique</span>
+                        <div class="team-code">MOZ</div>
+                    </div>
+                </div>
+                
+                <!-- Match 7 -->
+                <div class="match" data-match="7">
+                    <div class="team team-slot" id="m13" data-team-code="MAR">
+                        <img src="https://flagcdn.com/w40/ma.png" alt="Maroc" class="team-flag">
+                        <span class="team-name">Maroc</span>
+                        <div class="team-code">MAR</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team team-slot" id="m14" data-team-code="TAN">
+                        <img src="https://flagcdn.com/w40/tz.png" alt="Tanzanie" class="team-flag">
+                        <span class="team-name">Tanzanie</span>
+                        <div class="team-code">TAN</div>
+                    </div>
+                </div>
+                
+                <!-- Match 8 -->
+                <div class="match" data-match="8">
+                    <div class="team team-slot" id="m15" data-team-code="RSA">
+                        <img src="https://flagcdn.com/w40/za.png" alt="Afrique du Sud" class="team-flag">
+                        <span class="team-name">Afrique du Sud</span>
+                        <div class="team-code">RSA</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="team team-slot" id="m16" data-team-code="CMR">
+                        <img src="https://flagcdn.com/w40/cm.png" alt="Cameroun" class="team-flag">
+                        <span class="team-name">Cameroun</span>
+                        <div class="team-code">CMR</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Légende des couleurs -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color winner-color"></div>
+                <span>Équipe sélectionnée</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color qualified-color"></div>
+                <span>Équipe qualifiée</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color champion-color"></div>
+                <span>Champion</span>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button class="btn btn-primary" id="saveBtn">
+                <i class="fas fa-save"></i> Sauvegarder mes prédictions
+            </button>
+            <button class="btn btn-secondary" id="resetBtn">
+                <i class="fas fa-redo"></i> Tout réinitialiser
+            </button>
+            <button class="btn btn-maroc" id="autoMarocBtn">
+                <i class="fas fa-crown"></i> 🇲🇦 Victoire du Maroc
+            </button>
+            <!-- NOUVEAU BOUTON TÉLÉCHARGER -->
+            <button class="btn btn-success" id="downloadBtn">
+                <i class="fas fa-download"></i> Télécharger l'image
+            </button>
+            <!-- BOUTON PARTAGER -->
+            <button class="btn btn-info" id="shareBtn">
+                <i class="fas fa-share-alt"></i> Partager
+            </button>
+            <a href="accueil.html" class="btn btn-primary">
+                <i class="fas fa-history"></i> Voir l'historique
+            </a>
+        </div>
+                
+        <!-- Résumé des prédictions -->
+        <div class="predictions-summary" id="predictionsSummary">
+            <h3>Vos prédictions :</h3>
+            <div id="summaryContent">Aucune prédiction enregistrée</div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section" id="portfolio">
+        <h2 class="section-title-portfolio">PORTFOLIOS DES DÉVELOPPEURS</h2>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="card-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">MARZAK HIBA</h3>
+                    <a href="https://hiba997ugu.github.io/portfolio_total/" class="portfolio-link">Voir le portfolio</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="card-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">KORTAF SALMA</h3>
+                    <a href="https://portfoliosalmakortaf24.vercel.app/" class="portfolio-link">Voir le portfolio</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="card-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">TABIT DOUAA</h3>
+                    <a href="https://portfolio-two-tau-1fsbqjfa48.vercel.app/" class="portfolio-link">Voir le portfolio</a>
+                </div>
+            </div>
+            
+            <div class="portfolio-card">
+                <div class="card-image">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">ABARYOUD SALMA</h3>
+                    <a href="https://Salmabaryoud.github.io" class="portfolio-link">Voir le portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>CAN Predictions 2025</h3>
+                <p>Plateforme officielle de prédictions pour la Coupe d'Afrique des Nations 2025 au Maroc.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Liens rapides</h3>
+                <p><a href="accueil.html" class="footer-link">Page d'accueil</a></p>
+                <p><a href="#home" class="footer-link">Prédictions</a></p>
+                <p><a href="#instructions" class="footer-link">Comment jouer</a></p>
+                <p><a href="#portfolio" class="footer-link">Portfolio</a></p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> contact@canpredictions.ma</p>
+                <p><i class="fas fa-phone"></i> +212 6 XX XX XX XX</p>
+                <p><i class="fas fa-map-marker-alt"></i> Casablanca, Maroc</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 CAN Predictions. Tous droits réservés. | Développé avec ❤️ au Maroc</p>
+        </div>
+    </footer>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+69+
+    <script src="script.js"></script>
+</body>
+</html>

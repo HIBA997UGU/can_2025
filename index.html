@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - CAN 2025 Historique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <style>
+        /* Styles spécifiques pour la page d'accueil */
+        .hero-accueil {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('img/stade.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 10rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-accueil h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #D4AF37;
+        }
+        
+        .hero-accueil p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn-accueil {
+            display: inline-block;
+            background: linear-gradient(45deg, #D4AF37, #C1272D);
+            color: white;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-accueil:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .history-section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .history-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .history-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+        }
+        
+        .history-header {
+            background: linear-gradient(45deg, #1a1a2e, #16213e);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 2px solid #D4AF37;
+        }
+        
+        .history-header h3 {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        
+        .history-content {
+            padding: 2rem;
+        }
+        
+        .edition-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .edition-item:last-child {
+            border-bottom: none;
+        }
+        
+        .edition-year {
+            font-weight: bold;
+            color: #D4AF37;
+            font-size: 1.2rem;
+        }
+        
+        .winner {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .winner-flag {
+            width: 30px;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        .stats-section {
+            background: rgba(15, 25, 35, 0.8);
+            padding: 5rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 3rem auto 0;
+        }
+        
+        .stat-card {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid #D4AF37;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            color: white;
+        }
+        
+        .featured-teams {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .team-flag-large {
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            margin: 0 auto 1rem;
+            border: 2px solid #D4AF37;
+        }
+        
+        .call-to-action {
+            background: linear-gradient(45deg, #D4AF37, #C1272D);
+            padding: 5rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-accueil h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo1.png" alt="logo" width="150px" height="150px"></div>
+                <div>CAN 2025 Historique</div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Accueil</a>
+                <a href="#history" class="nav-link">Historique</a>
+                <a href="#stats" class="nav-link">Statistiques</a>
+                <a href="#teams" class="nav-link">Équipes</a>
+                <a href="percis.html" class="nav-link">Prédictions</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-accueil" id="home">
+        <h1>COUPE D'AFRIQUE DES NATIONS 2025</h1>
+        <p>Découvrez l'histoire, les statistiques et les résultats des précédentes éditions de la CAN. Préparez-vous pour l'édition 2025 au Maroc !</p>
+        <a href="#history" class="btn-accueil">Découvrir l'historique</a>
+        <a href="percis.html" class="btn-accueil">Faire des prédictions</a>
+    </section>
+
+    <!-- Historique des éditions -->
+    <section class="history-section" id="history">
+        <h2 class="section-title">HISTORIQUE DES ÉDITIONS</h2>
+        <p class="section-subtitle">Retour sur les 10 dernières éditions de la Coupe d'Afrique des Nations</p>
+        
+        <div class="history-grid">
+            <div class="history-card">
+                <div class="history-header">
+                    <h3>Éditions Récentes</h3>
+                </div>
+                <div class="history-content">
+                    <div class="edition-item">
+                        <span class="edition-year">2023</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/ci.png" alt="Côte d'Ivoire" class="winner-flag">
+                            <span>Côte d'Ivoire</span>
+                        </div>
+                    </div>
+                    <div class="edition-item">
+                        <span class="edition-year">2021</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/sn.png" alt="Sénégal" class="winner-flag">
+                            <span>Sénégal</span>
+                        </div>
+                    </div>
+                    <div class="edition-item">
+                        <span class="edition-year">2019</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/dz.png" alt="Algérie" class="winner-flag">
+                            <span>Algérie</span>
+                        </div>
+                    </div>
+                    <div class="edition-item">
+                        <span class="edition-year">2017</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/cm.png" alt="Cameroun" class="winner-flag">
+                            <span>Cameroun</span>
+                        </div>
+                    </div>
+                    <div class="edition-item">
+                        <span class="edition-year">2015</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/ci.png" alt="Côte d'Ivoire" class="winner-flag">
+                            <span>Côte d'Ivoire</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="history-card">
+                <div class="history-header">
+                    <h3>Palmarès Historique</h3>
+                </div>
+                <div class="history-content">
+                    <div class="edition-item">
+                        <span class="edition-year">2013</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/ng.png" alt="Nigeria" class="winner-flag">
+                            <span>Nigeria</span>
+                        </div>
+                    </div>
+                    <div class="edition-item">
+                        <span class="edition-year">2012</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/zm.png" alt="Zambie" class="winner-flag">
+                            <span>Zambie</span>
+                        </div>
+                    </div>
+                    <div class="edition-item">
+                        <span class="edition-year">2010</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/eg.png" alt="Égypte" class="winner-flag">
+                            <span>Égypte</span>
+                        </div>
+                    </div>
+                    <div class="edition-item">
+                        <span class="edition-year">2008</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/eg.png" alt="Égypte" class="winner-flag">
+                            <span>Égypte</span>
+                        </div>
+                    </div>
+                    <div class="edition-item">
+                        <span class="edition-year">2006</span>
+                        <div class="winner">
+                            <img src="https://flagcdn.com/w40/eg.png" alt="Égypte" class="winner-flag">
+                            <span>Égypte</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="history-card">
+                <div class="history-header">
+                    <h3>CAN 2025 - Maroc</h3>
+                </div>
+                <div class="history-content">
+                    <div style="text-align: center; padding: 1rem;">
+                        <img src="img/logo1.png" alt="CAN 2025 Maroc" style="max-width: 200px; margin-bottom: 1rem;">
+                        <h4 style="color: #D4AF37; margin-bottom: 1rem;">Édition 2025</h4>
+                        <p>La 35ème édition de la Coupe d'Afrique des Nations se déroulera au Maroc.</p>
+                        <p><strong>Pays hôte:</strong> Maroc 🇲🇦</p>
+                        <p><strong>Dates:</strong> Juin-Juillet 2025</p>
+                        <p><strong>Équipes:</strong> 24 équipes</p>
+                        <p><strong>Stades:</strong> 6 stades à travers le Maroc</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistiques -->
+    <section class="stats-section" id="stats">
+        <h2 class="section-title" style="text-align: center; color: #D4AF37;">STATISTIQUES RECORDS</h2>
+        <p class="section-subtitle" style="text-align: center;">Les chiffres clés de l'histoire de la CAN</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Titres pour l'Égypte</div>
+                <p style="color: #ccc; margin-top: 1rem;">Record absolu de victoires</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">35</div>
+                <div class="stat-label">Éditions jouées</div>
+                <p style="color: #ccc; margin-top: 1rem;">Depuis la première en 1957</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">14</div>
+                <div class="stat-label">Pays différents vainqueurs</div>
+                <p style="color: #ccc; margin-top: 1rem;">Diversité des champions</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">24</div>
+                <div class="stat-label">Équipes en 2025</div>
+                <p style="color: #ccc; margin-top: 1rem;">Format élargi depuis 2019</p>
+            </div>
+        </div>
+        
+        <div class="stats-grid" style="margin-top: 3rem;">
+            <div class="stat-card">
+                <div class="stat-number">102</div>
+                <div class="stat-label">Buts en CAN 2023</div>
+                <p style="color: #ccc; margin-top: 1rem;">Moyenne de 2.27 buts/match</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Titres consécutifs</div>
+                <p style="color: #ccc; margin-top: 1rem;">Record de l'Égypte (2006-2010)</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Finales pour le Ghana</div>
+                <p style="color: #ccc; margin-top: 1rem;">Sans jamais gagner</p>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-number">1974</div>
+                <div class="stat-label">Première CAN du Maroc</div>
+                <p style="color: #ccc; margin-top: 1rem;">Organisateur en 1988 aussi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipes favorites -->
+    <section class="featured-teams" id="teams">
+        <h2 class="section-title">ÉQUIPES FAVORITES 2025</h2>
+        <p class="section-subtitle">Les principales contenders pour le titre au Maroc</p>
+        
+        <div class="teams-grid">
+            <div class="team-card">
+                <img src="https://flagcdn.com/w80/ma.png" alt="Maroc" class="team-flag-large">
+                <h3>Maroc 🇲🇦</h3>
+                <p>Pays hôte - Demi-finaliste 2023</p>
+                <p><strong>Meilleur résultat:</strong> Vainqueur (1976)</p>
+            </div>
+            
+            <div class="team-card">
+                <img src="https://flagcdn.com/w80/sn.png" alt="Sénégal" class="team-flag-large">
+                <h3>Sénégal 🇸🇳</h3>
+                <p>Champion en titre 2021</p>
+                <p><strong>Classement FIFA:</strong> 1er africain</p>
+            </div>
+            
+            <div class="team-card">
+                <img src="https://flagcdn.com/w80/ci.png" alt="Côte d'Ivoire" class="team-flag-large">
+                <h3>Côte d'Ivoire 🇨🇮</h3>
+                <p>Champion 2023 - 2 titres</p>
+                <p><strong>Dernier titre:</strong> 2023</p>
+            </div>
+            
+            <div class="team-card">
+                <img src="https://flagcdn.com/w80/ng.png" alt="Nigeria" class="team-flag-large">
+                <h3>Nigeria 🇳🇬</h3>
+                <p>3 titres - Finaliste 2023</p>
+                <p><strong>Dernier titre:</strong> 2013</p>
+            </div>
+            
+            <div class="team-card">
+                <img src="https://flagcdn.com/w80/eg.png" alt="Égypte" class="team-flag-large">
+                <h3>Égypte 🇪🇬</h3>
+                <p>Record de 7 titres</p>
+                <p><strong>Dernier titre:</strong> 2010</p>
+            </div>
+            
+            <div class="team-card">
+                <img src="https://flagcdn.com/w80/dz.png" alt="Algérie" class="team-flag-large">
+                <h3>Algérie 🇩🇿</h3>
+                <p>Champion 2019 - 2 titres</p>
+                <p><strong>Meilleur buteur:</strong> Mahrez</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="call-to-action">
+        <div class="cta-content">
+            <h2>PRÊT À FAIRE VOS PRÉDICTIONS ?</h2>
+            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto;">
+                Testez vos connaissances footballistiques et tentez de prédire le parcours des équipes 
+                dans la phase à élimination directe de la CAN 2025 !
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="percis.html" class="btn-accueil" style="background: white; color: #C1272D;">
+                    <i class="fas fa-chart-line"></i> ACCÉDER AUX PRÉDICTIONS
+                </a>
+                <a href="#history" class="btn-accueil" style="background: transparent; border: 2px solid white;">
+                    <i class="fas fa-history"></i> VOIR PLUS D'HISTORIQUE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>CAN 2025 Historique</h3>
+                <p>Site officiel d'historique et de statistiques de la Coupe d'Afrique des Nations.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <p><a href="#home" class="footer-link">Accueil</a></p>
+                <p><a href="#history" class="footer-link">Historique</a></p>
+                <p><a href="#stats" class="footer-link">Statistiques</a></p>
+                <p><a href="#teams" class="footer-link">Équipes</a></p>
+                <p><a href="percis.html" class="footer-link">Prédictions</a></p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Ressources</h3>
+                <p><a href="#" class="footer-link">Archives CAN</a></p>
+                <p><a href="#" class="footer-link">Records & Palmarès</a></p>
+                <p><a href="#" class="footer-link">Calendrier 2025</a></p>
+                <p><a href="#" class="footer-link">Billetterie</a></p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> info@can2025histoire.ma</p>
+                <p><i class="fas fa-phone"></i> +212 5 XX XX XX XX</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rabat, Maroc</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 CAN 2025 Historique. Tous droits réservés. | Données historiques fournies par la CAF</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                    mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
+                
+                // Fermer le menu en cliquant sur un lien
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    });
+                });
+            }
+            
+            // Smooth scrolling pour les ancres
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
