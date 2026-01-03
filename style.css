@@ -18,7 +18,6 @@
 
 body {
     background: 
-        /* Image de stade en arrière-plan */
         linear-gradient(rgba(10, 14, 23, 0.9), rgba(10, 14, 23, 0.9)),
         url('touchemarocaine.jpeg');
     background-size: cover;
@@ -26,7 +25,7 @@ body {
     background-attachment: fixed;
     color: var(--light);
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: auto;
     position: relative;
 }
 
@@ -75,17 +74,11 @@ body::before {
     max-width: 150px;
     height: auto;
     border-radius: 10px;
+    transition: var(--transition);
 }
 
-.logo-text {
-    font-size: 1.8rem;
-    font-weight: 800;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.logo img:hover {
+    transform: scale(1.05);
 }
 
 .nav-links {
@@ -103,7 +96,6 @@ body::before {
     transition: var(--transition);
     position: relative;
     font-size: 1.1rem;
-
 }
 
 .nav-link:hover, .nav-link.active {
@@ -129,6 +121,9 @@ body::before {
     color: var(--light);
     font-size: 1.5rem;
     cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    background: rgba(212, 175, 55, 0.1);
 }
 
 /* Hero Section */
@@ -178,6 +173,12 @@ body::before {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.phase-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
 }
 
 .phase-badge.active {
@@ -192,32 +193,9 @@ body::before {
     padding: 0 2rem;
 }
 
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 3rem;
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-    left: 20%;
-    transform: translateX(-50%);
-    
-}
-.section-title {
-    text-align: center;
-    display: flexbox;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 3rem;
-    color: var(--primary);
-    position: relative;
-    display: inline-block;
-    transform: translateX(-50%);
-    
-}
-.section-title-portfolio,.section-title-comment{
+.section-title, 
+.section-title-portfolio,
+.section-title-comment {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 800;
@@ -227,8 +205,11 @@ body::before {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
 }
-.section-title::after , .section-title-portfolio::after {
+
+.section-title::after, 
+.section-title-portfolio::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -245,7 +226,6 @@ body::before {
     color: rgba(255, 255, 255, 0.7);
     margin-bottom: 2rem;
     font-size: 1.2rem;
-    left:30%
 }
 
 .instructions-container {
@@ -292,12 +272,10 @@ body::before {
 .tournament-section {
     max-width: 1400px;
     margin: 2rem auto;
-    padding:  1rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 5%;
-    
 }
 
 .tournament-container {
@@ -307,6 +285,7 @@ body::before {
     gap: 1.5rem;
     position: relative;
     min-height: 1200px;
+    width: 100%;
 }
 
 .round-column {
@@ -315,12 +294,10 @@ body::before {
     flex-direction: column;
     gap: 1.5rem;
     position: relative;
-    
 }
 
 .round-title {
     text-align: center;
-    width: 75%;
     color: var(--primary);
     font-size: 1.2rem;
     font-weight: 700;
@@ -331,7 +308,6 @@ body::before {
     background: rgba(212, 175, 55, 0.1);
     border-radius: 8px;
     border: 1px solid rgba(212, 175, 55, 0.3);
-
 }
 
 /* Match styling */
@@ -496,17 +472,35 @@ body::before {
 }
 
 /* Centre avec finale et champion */
-.center-column {
-    flex: 0.8;
+.center-column{
+    flex: 0 0 260px;
+    min-width: 260px;
+    max-width: 260px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
-    margin: 0 1rem;
+    gap: 1.8rem;
+    z-index: 5;
 }
+@media (max-width: 768px){
+    .tournament-container{
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
 
-.final-container{
+    .round-column{
+        flex: 0 0 85vw;
+        max-width: 85vw;
+    }
+
+    .center-column{
+        flex: 0 0 70vw;
+        max-width: 70vw;
+    }
+}
+.final-container {
     width: 100%;
     text-align: center;
     flex: 0.8;
@@ -522,9 +516,14 @@ body::before {
     width: 50%;
     text-align: center;
 }
+
 .trophy {
-    margin: 2rem 0;
+    margin: 2rem 20px;
     animation: glow 2s ease-in-out infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 @keyframes glow {
@@ -533,8 +532,11 @@ body::before {
 }
 
 .trophy img {
-    max-width: 200px;
+    width: 140px;
     height: auto;
+    max-width: 40vw;
+    display: block;
+
 }
 
 /* Legend */
@@ -544,7 +546,6 @@ body::before {
     gap: 2rem;
     margin: 2rem 0;
     flex-wrap: wrap;
-    left: 30%;
 }
 
 .legend-item {
@@ -582,8 +583,6 @@ body::before {
     margin: 3rem auto;
     flex-wrap: wrap;
     max-width: 1400px;
-    left: 20%;
-    
 }
 
 .btn {
@@ -633,6 +632,28 @@ body::before {
     box-shadow: 0 10px 25px rgba(193, 39, 45, 0.4);
 }
 
+.btn-success {
+    background: linear-gradient(45deg, #2ECC71, #27AE60);
+    color: white;
+}
+
+.btn-success:hover {
+    background: linear-gradient(45deg, #27AE60, #219653);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(39, 174, 96, 0.4);
+}
+
+.btn-info {
+    background: linear-gradient(45deg, #3498DB, #2980B9);
+    color: white;
+}
+
+.btn-info:hover {
+    background: linear-gradient(45deg, #2980B9, #1F639B);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(41, 128, 185, 0.4);
+}
+
 /* Predictions Summary */
 .predictions-summary {
     background: rgba(255, 255, 255, 0.03);
@@ -641,7 +662,6 @@ body::before {
     padding: 2rem;
     margin: 2rem auto;
     max-width: 800px;
-    display: flex;
 }
 
 .predictions-summary h3 {
@@ -662,6 +682,16 @@ body::before {
 .summary-section h4 {
     color: var(--primary);
     margin-bottom: 0.5rem;
+}
+
+.champion-summary {
+    background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(193, 39, 45, 0.2));
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--primary);
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
 }
 
 /* Portfolio Section */
@@ -818,108 +848,12 @@ footer {
     transform: translateX(0);
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-    .tournament-container {
-        flex-wrap: wrap;
-        min-height: auto;
-    }
-    
-    .round-column, .center-column {
-        flex: 100%;
-        margin-bottom: 3rem;
-    }
-    
-    .hero-title {
-        font-size: 2.8rem;
-    }
+.notification.success {
+    background: linear-gradient(45deg, #2ECC71, #27AE60) !important;
 }
 
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(15, 25, 35, 0.98);
-        flex-direction: column;
-        padding: 1rem;
-        border-top: 1px solid var(--primary);
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-    
-    .mobile-menu-btn {
-        display: block;
-    }
-    
-    .hero-title {
-        font-size: 2.2rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .btn {
-        min-width: 100%;
-    }
-    
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .tournament-phase {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .legend {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-/* Styles pour les nouveaux boutons */
-.btn-success {
-    background: linear-gradient(45deg, #2ECC71, #27AE60);
-    color: white;
-}
-
-.btn-success:hover {
-    background: linear-gradient(45deg, #27AE60, #219653);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(39, 174, 96, 0.4);
-}
-
-.btn-info {
-    background: linear-gradient(45deg, #3498DB, #2980B9);
-    color: white;
-}
-
-.btn-info:hover {
-    background: linear-gradient(45deg, #2980B9, #1F639B);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(41, 128, 185, 0.4);
-}
-
-/* Amélioration du résumé */
-.champion-summary {
-    background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(193, 39, 45, 0.2));
-    padding: 1rem;
-    border-radius: 10px;
-    border: 2px solid var(--primary);
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 1.2rem;
+.notification.error {
+    background: linear-gradient(45deg, #E74C3C, #C0392B) !important;
 }
 
 /* Animation pour le spinner */
@@ -932,40 +866,84 @@ footer {
     100% { transform: rotate(360deg); }
 }
 
-/* Amélioration des notifications */
-.notification.success {
-    background: linear-gradient(45deg, #2ECC71, #27AE60) !important;
+/* ============================================ */
+/* MEDIA QUERIES POUR RESPONSIVE */
+/* ============================================ */
+
+/* GRAND ECRAN (Desktop) */
+@media (min-width: 1201px) {
+    .tournament-container {
+        min-height: 1400px;
+    }
+    
+    .round-title {
+        width: 90%;
+    }
 }
 
-.notification.error {
-    background: linear-gradient(45deg, #E74C3C, #C0392B) !important;
+/* ORDINATEUR PORTABLE (Laptop) */
+@media (max-width: 1200px) {
+    .tournament-container {
+        flex-wrap: wrap;
+        min-height: auto;
+        gap: 2rem;
+    }
+    
+    .round-column, .center-column {
+        flex: 100%;
+        margin-bottom: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .tournament-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .center-column {
+        grid-column: 1 / -1;
+        order: -1;
+    }
 }
 
-/* Style pour le téléchargement */
-.download-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-.download-preview {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-}
-
-/* Responsive pour les nouveaux boutons */
-@media (max-width: 768px) {
+/* TABLETTE (Tablet) */
+@media (max-width: 992px) {
+    .hero {
+        padding: 6rem 1rem 3rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .section-title,
+    .section-title-portfolio,
+    .section-title-comment {
+        font-size: 2rem;
+        left: 0;
+        transform: none;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    
+    .tournament-section {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    
+    .tournament-container {
+        grid-template-columns: 1fr;
+    }
+    
     .action-buttons {
         flex-direction: column;
         align-items: center;
@@ -973,7 +951,401 @@ footer {
     
     .btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 400px;
         margin-bottom: 1rem;
     }
+    
+    .final-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .champion-container {
+        width: 100%;
+    }
+}
+
+/* MOBILE (Téléphone) */
+@media (max-width: 768px) {
+    /* Navigation Mobile */
+    .navbar {
+        padding: 0 1rem;
+    }
+    
+    .nav-container {
+        padding: 0.5rem 0;
+    }
+    
+    .logo img {
+        max-width: 120px;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 25, 35, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 1rem;
+        border-top: 1px solid var(--primary);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        margin: 0.5rem 0;
+    }
+    
+    /* Hero Mobile */
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Tournament Phase Mobile */
+    .tournament-phase {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .phase-badge {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    /* Instructions Mobile */
+    .instructions-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .instruction-card {
+        padding: 1.5rem;
+    }
+    
+    .instruction-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .instruction-title {
+        font-size: 1.3rem;
+    }
+    
+    /* Tournament Bracket Mobile */
+    .tournament-container {
+        gap: 1rem;
+    }
+    
+    .round-column {
+        gap: 1rem;
+    }
+    
+    .round-title {
+        font-size: 1rem;
+        padding: 0.8rem;
+        width: 100%;
+    }
+    
+    .match {
+        min-height: 120px;
+        padding: 0.8rem;
+    }
+    
+    .team {
+        padding: 0.6rem;
+        gap: 0.8rem;
+    }
+    
+    .team-flag {
+        width: 35px;
+        height: 25px;
+    }
+    
+    .team-name {
+        font-size: 1rem;
+        max-width: 120px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .team-code {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    /* Slots Mobile */
+    .slot {
+        min-height: 100px;
+        padding: 0.8rem;
+    }
+    
+    .quarter-slot {
+        min-height: 90px;
+    }
+    
+    .semi-slot {
+        min-height: 110px;
+    }
+    
+    .final-slot {
+        min-height: 120px;
+    }
+    
+    .champion-slot {
+        min-height: 160px;
+    }
+    
+    .placeholder {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+    
+    /* Trophy Mobile */
+    .trophy img {
+        max-width: 150px;
+    }
+    
+    /* Legend Mobile */
+    .legend {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    /* Portfolio Mobile */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .portfolio-card {
+        margin: 0.5rem;
+    }
+    
+    /* Footer Mobile */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* PETIT MOBILE (Small Phone) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .section-title,
+    .section-title-portfolio,
+    .section-title-comment {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        min-width: auto;
+    }
+    
+    .team-name {
+        max-width: 100px;
+        font-size: 0.9rem;
+    }
+    
+    .trophy img {
+        max-width: 120px;
+    }
+    
+    .notification {
+        left: 10px;
+        right: 10px;
+        max-width: none;
+    }
+}
+
+/* LANDSCAPE MOBILE */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        padding: 5rem 1rem 2rem;
+    }
+    
+    .tournament-section {
+        padding: 1rem;
+    }
+    
+    .match {
+        min-height: 110px;
+    }
+    
+    .slot {
+        min-height: 90px;
+    }
+}
+
+/* IOS SAFARI FIX */
+@supports (-webkit-touch-callout: none) {
+    .navbar {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    .hero {
+        padding-top: calc(8rem + env(safe-area-inset-top));
+    }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .trophy,
+    .slot.filled {
+        animation: none;
+    }
+}
+
+/* DARK MODE SUPPORT */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --light: #F0F0F0;
+        --dark: #0A0A0A;
+    }
+}
+
+.tournament-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;          
+    width: fit-content;   
+    max-width: 100%;
+    padding: 0 1rem;  
+    overflow-x: visible; 
+    flex-wrap: nowrap;   
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .tournament-container {
+    display: flex;
+    flex-wrap: nowrap;              
+    justify-content: flex-start;
+    overflow-x: auto;               
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .tournament-container .team {
+    min-width: 140px;               
+    flex-shrink: 0;                
+  }
+}
+
+/* Si tu veux cacher scrollbar f mobile */
+.tournament-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.tournament-container::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.6);
+    border-radius: 4px;
+}
+
+.tournament-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+ @media (max-width: 768px){
+  .tournament-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 10px 50%; /* ESPACE POUR CENTRER LA FINALE */
+    scroll-snap-type: x mandatory;
+  }
+
+  /* CHAQUE COLONNE (y compris center-column) */
+  .tournament-container > * {
+    flex: 0 0 auto;
+    width: 85vw;
+    max-width: 320px;
+    scroll-snap-align: center;
+  }
+
+  /* CENTRE-COLUMN SPÉCIAL */
+  .center-column {
+    position: relative; /* IMPORTANT: enlève absolute/fixed */
+    left: auto; /* ENLÈVE left: 50% */
+    transform: none; /* ENLÈVE translateX(-50%) */
+    z-index: 10;
+    width: 85vw;
+    max-width: 320px;
+    margin: 0; /* PAS de margin auto */
+    /* Le padding du parent va le centrer */
+  }
+
+  /* Pour que la finale soit au milieu du scroll */
+  .tournament-container::before,
+  .tournament-container::after {
+    content: '';
+    flex: 0 0 calc(50% - 160px); /* 50% moins la moitié de la largeur du center-column */
+    min-width: calc(50% - 160px);
+  }
+
+  .trophy{
+     pointer-events: none;
+  }
 }
